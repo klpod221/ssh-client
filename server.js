@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const http = require("http");
 const SSHClient = require("ssh2").Client;
 const utf8 = require("utf8");
@@ -11,7 +12,7 @@ const server = http.createServer(app);
 
 app.set("view engine", "ejs");
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
   res.render("index");
